@@ -1,6 +1,10 @@
 # DiscordBot
 Spaghetti coded discord.js bot
 
+# Note
+
+Games aren't updated to discord V13 due to me being lazy.
+
 # Install
 
 1. Clone this repo
