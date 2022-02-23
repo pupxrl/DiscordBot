@@ -4,6 +4,7 @@ Spaghetti coded discord.js bot
 # Install
 
 1. Clone this repo
+
 `# For SSH`
 `git clone git@github.pupp30/discordbot.git`
 
