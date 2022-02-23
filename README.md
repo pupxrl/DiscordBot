@@ -15,6 +15,6 @@ For HTTPS
 
 2. Run `npm i`
 
-3. Replace token in config
+3. Replace token in `config.json`
 
 4. Run `node index.js`
