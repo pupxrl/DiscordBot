@@ -11,11 +11,11 @@ Games aren't updated to discord V13 due to me being lazy.
 
 For SSH
 
-`git clone git@github.pupp30/discordbot.git`
+`git clone git@github.hanafudas/discordbot.git`
 
 For HTTPS
 
-`git clone https://github.com/pupp30/discordbot.git`
+`git clone https://github.com/hanafudas/discordbot.git`
 
 2. Run `npm i`
 
