@@ -11,7 +11,7 @@ Spaghetti coded discord.js bot
 
 `# For HTTPS`
 
-`git clone https://github.com/pupp30/discordbot.git`
+```git clone https://github.com/pupp30/discordbot.git```
 
 2. Run `npm i`
 
