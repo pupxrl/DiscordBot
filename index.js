@@ -20,7 +20,7 @@ bot.on('ready', async () => {
     |-------------------------|
     | > Logging in...         |
     |-------------------------|
-    User: ${bot.user.tag}`
+    Bot: ${bot.user.tag}`
     
         console.log(botonmessage);
         console.log(`Servers - ${bot.guilds.cache.size}`)
