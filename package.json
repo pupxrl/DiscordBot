@@ -1,12 +1,12 @@
 {
-  "name": "e-bot",
+  "name": "Discord-Bot",
   "version": "1.0.0",
   "description": "E-Boy discord bot by Pup",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Pup",
+  "author": "Author",
   "license": "ISC",
   "dependencies": {
     "cat-facts": "^1.0.2",
