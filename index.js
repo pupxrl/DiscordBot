@@ -20,13 +20,7 @@ bot.on('ready', async () => {
     |-------------------------|
     | > Logging in...         |
     |-------------------------|
-    | User: ${bot.user.tag}
-    |  ▄▄·  ▄▄▄· .▄▄ ·  ▄ .▄  |
-    | ▐█ ▌▪▐█ ▀█ ▐█ ▀. ██▪▐█  |
-    | ██ ▄▄▄█▀▀█ ▄▀▀▀█▄██▀▐█  |
-    | ▐███▌▐█ ▪▐▌▐█▄▪▐███▌▐▀  |
-    | ·▀▀▀  ▀  ▀  ▀▀▀▀ ▀▀▀ ·  |
-    |______Bot is online______|`
+    User: ${bot.user.tag}`
     
         console.log(botonmessage);
         console.log(`Servers - ${bot.guilds.cache.size}`)
