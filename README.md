@@ -1,10 +1,6 @@
 # DiscordBot
 Spaghetti coded discord.js bot
 
-# Support
-https://discord.gg/bqHbHuYKAF
-Support server for Cash discord bot
-
 # Note
 
 Games aren't updated to discord V13 due to me being lazy.
