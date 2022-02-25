@@ -3,7 +3,7 @@ Spaghetti coded discord.js bot
 
 # Support
 https://discord.gg/bqHbHuYKAF
- ^ Support server for Cash discord bot
+Support server for Cash discord bot
 
 # Note
 
