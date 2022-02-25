@@ -42,10 +42,10 @@ bot.on("guildMemberAdd", async (member) => {
     const VaultServer = bot.guilds.cache.get('ID')
     if (member.guild.id == VaultServer) {
         if (member.id === 'ID') {
-                console.log('User was added')
+                console.log(`${member.user.tag} has joined`)
         } else {
             if (member.id === 'ID') {
-                console.log('User was added')
+                console.log(`${member.user.tag} has joined`)
         } else {
                 console.log(`Kicked ${member.user.tag}`);
                 member.kick();
@@ -56,14 +56,16 @@ bot.on("guildMemberAdd", async (member) => {
     }
 });
 
+// If the bot wasn't online when the user joined, on update/given a role, it will check if they are allouwed in the server or not.
+
 bot.on("guildMemberUpdate", async (member) => {
     const VaultServer = bot.guilds.cache.get('ID')
     if (member.guild.id == VaultServer) {
         if (member.id === 'ID') {
-                console.log('User was updated')
+                console.log(`${member.user.tag} was updated`)
         } else {
             if (member.id === 'ID') {
-                console.log('User was updated')
+                console.log(`${member.user.tag} was updated`)
         } else {
                 console.log(`Kicked ${member.user.tag}`);
                 member.kick();
@@ -228,7 +230,7 @@ if (message.channel.id == secondChannel) {
             .setAuthor('Help Panel')
             .setTitle('Page 1 Moderation')
             .setDescription(`\n${config.prefix}delete \`<number of messages> (Permission: "Manage Messages" needed)\``)
-            message.channel.send({ embeds: [help1], components: [helpRow] }).then(message =>{setTimeout(() => message.delete(), 15000)});
+            message.channel.send({ embeds: [help1], components: [helpRow] }).then(message =>{setTimeout(() => message.delete(), 15000)}); // each help panel deletes itself after 15 seconds
             break;
 
             case 'serverinfo':
@@ -275,12 +277,12 @@ if (message.channel.id == secondChannel) {
 
         case 'roll':
             let rollnumber = [
-                `<:dice:798641475377561693> ${message.author.username} rolled a 1`,
-                `<:dice:798641475377561693> ${message.author.username} rolled a 2`,
-                `<:dice:798641475377561693> ${message.author.username} rolled a 3`,
-                `<:dice:798641475377561693> ${message.author.username} rolled a 4`,
-                `<:dice:798641475377561693> ${message.author.username} rolled a 5`,
-                `<:dice:798641475377561693> ${message.author.username} rolled a 6`
+                `<:game_die:> ${message.author.username} rolled a 1`,
+                `<:game_die:> ${message.author.username} rolled a 2`,
+                `<:game_die:> ${message.author.username} rolled a 3`,
+                `<:game_die:> ${message.author.username} rolled a 4`,
+                `<:game_die:> ${message.author.username} rolled a 5`,
+                `<:game_die:> ${message.author.username} rolled a 6`
             ];
             const rollembed = new MessageEmbed()
             .setColor(embedColor)
@@ -476,6 +478,7 @@ if (message.channel.id == secondChannel) {
 
     if (message.content.startsWith(config.prefix + "dm")) {
         if (message.member.permissions.has("MOVE_MEMBERS")) {
+        // using permission MOVE_MEMBERS because i don't want just anyone using this command since it can be really annoying, but have someone with a small permission have the ability to use this command
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0])
         if (!args) return message.channel.send(`You need to mention a user.`);
         if (!args.slice(1).join(" ")) return message.channel.send("You need to enter a message to send them.");
