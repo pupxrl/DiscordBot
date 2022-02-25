@@ -269,9 +269,7 @@ if (message.channel.id == secondChannel) {
             const info = new MessageEmbed()
             .setColor(config.embedColor)
             .setTitle('*Info*')
-            .addField('**CREATED BY:**', `This bot is being developed by [Pup](https://discord.com/users/851173331976585278)`)
-            .addField('**MADE WITH:**', "This bot is being developed with [Discord.JS](http://discord.js.org/)")
-            .addField('**COME FIND ME:**', `[discord.gg/anti](https://discord.gg/anti)`)
+            .addField('**MADE WITH:**', "This bot is coded with [JS](http://discord.js.org/)")
             message.author.send({ embeds: [info] });
             break;
 
