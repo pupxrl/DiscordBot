@@ -36,46 +36,6 @@ bot.on('ready', async () => {
     }, 5000);
 });
 
-// Member whitelist or some shit couldn't be bothered to make a database so i just made a bunch of if statements '-_(-.-)_-'
-
-bot.on("guildMemberAdd", async (member) => {
-    const VaultServer = bot.guilds.cache.get('ID')
-    if (member.guild.id == VaultServer) {
-        if (member.id === 'ID') {
-                console.log(`${member.user.tag} has joined`)
-        } else {
-            if (member.id === 'ID') {
-                console.log(`${member.user.tag} has joined`)
-        } else {
-                console.log(`Kicked ${member.user.tag}`);
-                member.kick();
-                }
-            }
-    } else {
-        return
-    }
-});
-
-// If the bot wasn't online when the user joined, on update/given a role, it will check if they are allouwed in the server or not.
-
-bot.on("guildMemberUpdate", async (member) => {
-    const VaultServer = bot.guilds.cache.get('ID')
-    if (member.guild.id == VaultServer) {
-        if (member.id === 'ID') {
-                console.log(`${member.user.tag} was updated`)
-        } else {
-            if (member.id === 'ID') {
-                console.log(`${member.user.tag} was updated`)
-        } else {
-                console.log(`Kicked ${member.user.tag}`);
-                member.kick();
-                }
-            }
-    } else {
-        return
-    }
-});
-
 bot.on("interactionCreate", async (interaction) => {
     if (interaction.isCommand()) {
         await interaction.deferReply({ ephemeral: false }).catch(() => {});
