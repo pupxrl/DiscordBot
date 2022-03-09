@@ -25,10 +25,9 @@ bot.on('ready', async () => {
         console.log(botonmessage);
         console.log(`Servers - ${bot.guilds.cache.size}`)
 
-    let statusArray = [ // interval loop for status
+    let statusArray = [
         `| $help for commands |`
-        //`for $help in ${bot.guilds.cache.size} servers!`,
-        //`anime go away!`
+        `you...`
     ];
     
     setInterval(function() {
@@ -82,7 +81,7 @@ bot.on("interactionCreate", async (interaction) => {
                 .setColor(config.embedColor)
                 .setAuthor('Help Panel')
                 .setTitle('Page 4 Anime')
-                .setDescription(`\n**ANIME:**\n${config.prefix}cuddle \`<@user>\`\n${config.prefix}hug \`<@user>\`\n${config.prefix}slap \`<@user>\`\n${config.prefix}poke \`<@user>\`\n${config.prefix}tickle \`<@user>\`\n${config.prefix}pat \`<@user>\`\n${config.prefix}feed \`<@user>\`\n${config.prefix}kiss \`<@user>\`\n${config.prefix}notice \`<contains hugs>\``)
+                .setDescription(`\n**${config.prefix}delete** \`[count] (Permission: "Manage Messages" needed)\`__*Deletes messages*__\n**${config.prefix}ban** \`<@user> (Permission: "Ban Members" needed)\`__*Bans a certain user*__\n**${config.prefix}kick** \`<@user> (Permission: "Kick Members" needed)\`__*Kicks a certain user*__`)
                 interaction.channel.send({ embeds: [help4] }).then(message =>{setTimeout(() => message.delete(), 15000)});
         }
     }
@@ -91,91 +90,12 @@ bot.on("interactionCreate", async (interaction) => {
 bot.on('messageCreate', async message => {
 
     const args = message.content.substring(config.prefix.length).split(" "); // prefix split
-   
+    if (!message.content.startsWith(config.prefix)) return;
+    
 if (message.content.toLowerCase() === `${config.prefix}`) {
     message.channel.send(`I don't understand there is no command here ${message.author.username}`)
 };
     
-if (message.content.startsWith('joe')) {
-    message.channel.send('Joe Mama!')
-};
-
-if (message.content.startsWith('do you remember')) {
-    message.channel.send('The 21st night of september?')
-};
-
-if (message.content.startsWith('rick roll')) {
-    message.delete()
-    const Showcase = new MessageEmbed()
-    .setColor(config.embedColor)
-    .setTitle('Free Undetectable CS:GO Cheats 100% Legit')
-    .setURL('https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO')
-    message.channel.send({ embeds: [Showcase] });
-};
-
-if (message.content.startsWith('creeper')) {
-    message.channel.send('Awww man!')
-};
-
-if (message.content.toLowerCase() === 'hello') {
-        message.channel.send(`Ohayo ${message.author.username}.`)
-};
-
-if (message.content.toLowerCase() === 'hey') {
-    message.channel.send(`Hewo ${message.author.username}!`)
-};
-
-if (message.content.toLowerCase() === 'hi') {
-    message.channel.send(`OMG ITS ${message.author.username}!!`)
-};
-
-if (message.content.toLowerCase() === 'erp') {
-    if (message.author.id === config.Master) {
-        message.channel.send("YES ERP! ")
-    } else {
-    message.channel.send("NO ERP! ")
-    }
-};
-
-let firstChannel = bot.channels.cache.get('ID')
-let secondChannel = bot.channels.cache.get('ID')
-
-/*if (message.content.startsWith(`${prefix}`) != 1) {*/
-if (message.channel.id == firstChannel) {
-    if (message.author.bot) return
-    let channel1 = secondChannel
-    let cont = message.content
-
-    let messageEmbed1 = new MessageEmbed()
-    .setColor(config.embedColor)
-    .setTitle('From Discord server 1')
-    .setURL('https://www.discord.gg/invite_id')
-    .setAuthor({ name: `Message sent by ${message.author.username}`, iconURL: `${message.author.displayAvatarURL({dynamic: true})}`})
-    .setDescription(`${cont}`)
-    .setTimestamp()
-    channel1.send({ embeds: [messageEmbed1] })
-    firstChannel = null
-    return
-}
-
-if (message.channel.id == secondChannel) {
-    if (message.author.bot) return
-    let channel1 = firstChannel
-    let cont = message.content
-    let messageEmbed2 = new MessageEmbed()
-    .setColor(config.embedColor)
-    .setTitle('From discord server 2')
-    .setURL('https://discord.gg/invite_id')
-    .setAuthor({ name: `Message sent by ${message.author.username}`, iconURL: `${message.author.displayAvatarURL({dynamic: true})}`})
-    .setDescription(`${cont}`)
-    .setTimestamp()
-    channel1.send({ embeds: [messageEmbed2] })
-    firstChannel = null
-    return
-}
-
-    if (!message.content.startsWith(config.prefix)) return;
-
     switch(args[0]){
 
         case 'help':
@@ -212,6 +132,45 @@ if (message.channel.id == secondChannel) {
                 .setImage(`https://cdn.discordapp.com/splashes/${message.guild.id}/${message.guild.splash}?size=3072`)
                   message.channel.send({ embeds: [serverinfoembed] });
             break;
+            
+            case 'ban': 
+            if (message.member.permissions.has("BAN_MEMBERS")) {
+                const target = message.mentions.members.first(); 
+                if (!target) {
+                    return message.channel.send('You have to mention a user to ban them.')
+                }
+
+                if (!target.bannable) {
+                    return message.channel.send('I cannot ban this user.')
+                }
+
+                target.ban()
+
+                return message.channel.send(`${target.user.tag} was banned.`)
+            } else {
+            message.channel.send(`${message.author} You do not have the permission \`ban members\` to use this command.`)
+                }
+                break;
+            
+            
+                case 'kick': 
+                if (message.member.permissions.has("KICK_MEMBERS")) {
+                    const target = message.mentions.members.first(); 
+                    if (!target) {
+                        return message.channel.send('You have to mention a user to kick them.')
+                    }
+    
+                    if (!target.kickable) {
+                        return message.channel.send('I cannot kick this user.')
+                    }
+    
+                    target.kick()
+    
+                    return message.channel.send(`${target.user.tag} was kicked.`)
+                } else {
+                message.channel.send(`${message.author} You do not have the permission \`kick members\` to use this command.`)
+                    }
+                    break;
 
         case 'rate': 
             let number = Math.floor(Math.random() * 11);
