@@ -3,7 +3,7 @@ Spaghetti coded discord.js bot
 
 # Note
 
-Games aren't updated to discord V13 due to me being lazy.
+Games aren't updated to discord V13 because i'm lazy.
 
 # Install
 
