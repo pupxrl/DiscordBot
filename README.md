@@ -3,7 +3,7 @@ It's a discord bot written in javascript
 
 # Note
 
-Games aren't updated to discord V13 because i'm lazy.
+No longer being updated to latest version of Discord API
 
 # Install
 
