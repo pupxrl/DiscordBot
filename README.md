@@ -1,5 +1,5 @@
 # DiscordBot
-Spaghetti coded discord.js bot
+It's a discord bot written in javascript
 
 # Note
 
