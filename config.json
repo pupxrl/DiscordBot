@@ -1,7 +1,6 @@
 {
-"prefix": "-",
-"token": "Enter_Bot_Token_Here",
-"BotAuthor": "Enter_Your_Username_Here",
-"Master": "Enter_Your_ID_Here",
-"embedColor": "A7A7A7"
+  "prefix": "1",
+  "token": "YOUR_BOT_TOKEN",
+  "BotAuthor": "YOUR_USERNAME",
+  "embedColor": "A7A7A7"
 }
