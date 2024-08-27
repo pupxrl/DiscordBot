@@ -7,8 +7,6 @@ const {
   GatewayIntentBits,
   Partials,
   Options,
-  Activity,
-  ActionRow,
   PermissionsBitField,
   ButtonStyle,
   ChannelType,
@@ -52,11 +50,11 @@ const config = require("./config.json");
 const superagent = require("superagent");
 
 bot.on("ready", async () => {
-  var botonmessage = `${bot.user.username} logged in and ready!`;
 
-  console.log(botonmessage);
+  console.log(`${bot.user.username} logged in and ready!`);
 
-  bot.user.setActivity({ type: ActivityType.Custom, name: "Bot by pup" });
+  // setting bot activity
+  bot.user.setActivity({ type: ActivityType.Custom, name: "Bot written by pup" });
 });
 
 bot.on("interactionCreate", async (interaction) => {
@@ -263,16 +261,6 @@ bot.on("messageCreate", async (message) => {
           `${message.author} You do not have the permission \`kick members\` to use this command.`
         );
       }
-      break;
-
-    case "info": // display information about the bot in an embed message
-      const info = new EmbedBuilder()
-        .setColor(config.embedColor)
-        .setTitle("Bot Info")
-        .setDescription(
-          `This bot was coded using [Node.Js](http://discord.js.org/)\n-# Made by **${config.BotAuthor}**`
-        );
-      message.channel.send({ embeds: [info] });
       break;
 
     case "roll": // random game die command
