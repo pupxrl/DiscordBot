@@ -51,7 +51,6 @@ Create a `config.json` file in the root directory with the following content:
 {
   "prefix": "1",
   "token": "YOUR_BOT_TOKEN",
-  "BotAuthor": "YOUR_USERNAME",
   "embedColor": "A7A7A7"
 }
 ```
@@ -60,7 +59,6 @@ Replace the placeholders with your actual Discord bot token and other details:
 
 - `prefix`: The prefix for your bot commands (e.g., `!`, `?`).
 - `token`: Your bot's token from the Discord Developer Portal.
-- `BotAuthor`: Your username.
 - `embedColor`: The default embed color to use.
 
 ### 4. Run the Bot
