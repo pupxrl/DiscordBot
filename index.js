@@ -50,11 +50,13 @@ const config = require("./config.json");
 const superagent = require("superagent");
 
 bot.on("ready", async () => {
-
   console.log(`${bot.user.username} logged in and ready!`);
 
   // setting bot activity
-  bot.user.setActivity({ type: ActivityType.Custom, name: "Bot written by pup" });
+  bot.user.setActivity({
+    type: ActivityType.Custom,
+    name: "Bot written by pup",
+  });
 });
 
 bot.on("interactionCreate", async (interaction) => {
